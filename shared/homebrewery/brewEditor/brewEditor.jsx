@@ -12,7 +12,7 @@ const splice = function(str, index, inject){
 
 const SNIPPETBAR_HEIGHT = 25;
 
-const Editor = React.createClass({
+const BrewEditor = React.createClass({
 	getDefaultProps: function() {
 		return {
 			value : '',
@@ -34,6 +34,7 @@ const Editor = React.createClass({
 
 	componentDidMount: function() {
 		this.updateEditorSize();
+		this.highlightPageLines();
 		window.addEventListener("resize", this.updateEditorSize);
 	},
 	componentWillUnmount: function() {
@@ -70,6 +71,20 @@ const Editor = React.createClass({
 		this.refs.codeEditor.updateSize();
 	},
 
+	highlightPageLines : function(){
+		if(!this.refs.codeEditor) return;
+		const codeMirror = this.refs.codeEditor.codeMirror;
+
+		const lineNumbers = _.reduce(this.props.value.split('\n'), (r, line, lineNumber)=>{
+			if(line.indexOf('\\page') !== -1){
+				codeMirror.addLineClass(lineNumber, 'background', 'pageLine');
+				r.push(lineNumber);
+			}
+			return r;
+		}, []);
+		return lineNumbers
+	},
+
 	renderMetadataEditor : function(){
 		if(!this.state.showMetadataEditor) return;
 		return <MetadataEditor
@@ -79,8 +94,11 @@ const Editor = React.createClass({
 	},
 
 	render : function(){
+
+		this.highlightPageLines();
+
 		return(
-			<div className='editor' ref='main'>
+			<div className='brewEditor' ref='main'>
 				<SnippetBar
 					brew={this.props.value}
 					onInject={this.handleInject}
@@ -99,5 +117,5 @@ const Editor = React.createClass({
 	}
 });
 
-module.exports = Editor;
+module.exports = BrewEditor;
 
