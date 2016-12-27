@@ -13,6 +13,7 @@
   "author": "stolksdorf",
   "license": "MIT",
   "dependencies": {
+    "babel-preset-latest": "^6.16.0",
     "basic-auth": "^1.0.3",
     "body-parser": "^1.14.2",
     "classnames": "^2.2.0",
