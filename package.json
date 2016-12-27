@@ -13,7 +13,6 @@
   "author": "stolksdorf",
   "license": "MIT",
   "dependencies": {
-    "babel-preset-latest": "^6.16.0",
     "basic-auth": "^1.0.3",
     "body-parser": "^1.14.2",
     "classnames": "^2.2.0",
@@ -26,13 +25,13 @@
     "moment": "^2.11.0",
     "mongoose": "^4.3.3",
     "nconf": "^0.8.4",
-    "pico-flux": "^2.0.0",
+    "pico-flux": "^2.1.2",
     "pico-router": "^1.1.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "shortid": "^2.2.4",
     "striptags": "^2.1.1",
     "superagent": "^1.6.1",
-    "vitreum": "^4.0.7"
+    "vitreum": "^4.0.10"
   }
 }
