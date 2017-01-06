@@ -1,4 +1,3 @@
-const _ = require('lodash');
 
 const express = require("express");
 const app = express();
@@ -35,3 +34,5 @@ app.use(require('./server/error.js').expressHandler);
 const PORT = process.env.PORT || 8000;
 app.listen(PORT);
 console.log(`server on port:${PORT}`);
+
+module.exports = app;
