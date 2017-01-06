@@ -13,6 +13,7 @@ require('./server/db.js').connect();
 //Server
 const app = require('./server/app.js');
 
+/*
 app.use((req, res, next) => {
 	log.debug('---------------------------');
 	log.debug(req.method, req.path);
@@ -26,7 +27,7 @@ app.use((req, res, next) => {
 
 	next();
 });
-
+*/
 
 const PORT = process.env.PORT || 8000;
 const httpServer = app.listen(PORT, () => {
