@@ -26,15 +26,17 @@ const Homebrew = React.createClass({
 		return {
 			url : '',
 			version : '0.0.0',
-			user : undefined,
+			loginPath : '',
 
+			user : undefined,
 			brew : undefined,
 			brews : []
 		};
 	},
 	componentWillMount: function() {
-		//TODO: remove
-		global.account = this.props.account;
+		console.log('user', this.props.user);
+		console.log('loginpath', this.props.loginPath);
+
 
 		//console.log(mapObject(['version', 'brew', 'account'], this.props));
 
